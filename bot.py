@@ -21,11 +21,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
 
     if query.data == "report":
-        text = """الـســلام عــلـيكـم و رحــمه الله
+        text = """
 
 
-
-شرح الليله طريقه حظر قنوات تيليجرام🔒⛔
+شرح الليله طريقه حظر قنوات تيليجرام
 
 ------------------------------------------------------------------
 • الـطـريـقـه سـاهـلـه و بـسـيـطـه بـس انـت ركـز
@@ -41,13 +40,14 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 -----------------------------------------------------------------
 
+        """
         await query.message.reply_text(text)
 
 app = Application.builder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CallbackQueryHandler(button))
 
-app_web = Flask(name)
+app_web = Flask(__name__)
 
 @app_web.route("/")
 def home():
