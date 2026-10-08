@@ -9,7 +9,7 @@ TOKEN = os.environ.get("TOKEN")
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [InlineKeyboardButton("🛡️ كيف تبند قنوات تيليجرام", callback_data="report")]
-    ]
+    ][InlineKeyboardButton("🔢 كيفية معرفة رقمك التسلسلي وما الفائدة منه", callback_data="serial")]
 
     await update.message.reply_text(
         "🔐 أهلاً بك في البوت!\n\nاختر من القائمة:",
@@ -22,7 +22,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if query.data == "report":
         text = """
-
+if query.data == "serial":
+    await query.message.reply_text("🔢 هنا شرح الرقم التسلسلي وفائدته.")
 
 شرح الليله طريقه حظر قنوات تيليجرام
 
