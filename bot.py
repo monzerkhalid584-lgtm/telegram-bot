@@ -41,7 +41,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
 -----------------------------------------------------------------
 
         """
-        await query.message.reply_text(text)
+        await query.message.reply_video(
+    video=open("XRecorder_20260819_01.mp4", "rb")
+)
 
 app = Application.builder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
